@@ -5,7 +5,7 @@ const { audit } = require('../lib/audit');
 const { wrap, httpErr } = require('../lib/util');
 
 const fails = new Map(); // ip|username -> {count, until}
-const MAX_FAILS = 5, LOCK_MS = 10 * 60 * 1000;
+const MAX_FAILS = 5, LOCK_MS = 5 * 1000;
 
 const okUsername = (u) => /^[a-z0-9._-]{3,30}$/.test(u);
 const okPassword = (p) => typeof p === 'string' && p.length >= 6 && p.length <= 100;
