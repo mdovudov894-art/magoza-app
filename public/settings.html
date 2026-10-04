@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-title="nav_settings">
+  <header id="top"></header>
+  <main class="page">
+    <section class="panel">
+      <h2 data-i18n="nav_settings"></h2>
+      <form id="form">
+        <div class="fgrid">
+          <h3 data-i18n="set_store"></h3>
+          <label class="f"><span data-i18n="set_store_name"></span><input type="text" id="sName"></label>
+          <div class="two">
+            <label class="f"><span data-i18n="set_address"></span><input type="text" id="sAddr"></label>
+            <label class="f"><span data-i18n="set_phone"></span><input type="text" id="sPhone"></label>
+          </div>
+          <label class="f"><span data-i18n="set_footer"></span><input type="text" id="sFooter"></label>
+          <label class="f"><span data-i18n="set_expiry_days"></span><input type="number" id="sDays" min="0" max="365"></label>
+
+          <h3 class="mt" data-i18n="set_weight"></h3>
+          <p class="hint" data-i18n="set_weight_hint"></p>
+          <label class="rad payrow"><input type="checkbox" id="wOn"> <span data-i18n="set_weight_on"></span></label>
+          <div class="two">
+            <label class="f"><span data-i18n="set_weight_prefix"></span><input type="text" id="wPrefix" inputmode="numeric"></label>
+            <label class="f"><span data-i18n="set_weight_mode"></span>
+              <select id="wMode"><option value="weight" data-i18n="set_mode_weight"></option><option value="price" data-i18n="set_mode_price"></option></select></label>
+          </div>
+          <div class="two">
+            <label class="f"><span data-i18n="set_weight_itemlen"></span><input type="number" id="wItemLen" min="1" max="8"></label>
+            <label class="f"><span data-i18n="set_weight_valstart"></span><input type="number" id="wValStart" min="0" max="12"></label>
+          </div>
+          <label class="f"><span data-i18n="set_weight_vallen"></span><input type="number" id="wValLen" min="1" max="8"></label>
+        </div>
+        <div class="row"><button type="submit" class="btn primary" data-i18n="save"></button></div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2 data-i18n="backup_title"></h2>
+      <p class="hint" data-i18n="backup_hint"></p>
+      <p class="hint"><span data-i18n="backup_dir"></span>: <b class="code" id="bkDir"></b></p>
+      <div class="inline mt"><button type="button" id="bkNow" class="btn primary" data-i18n="backup_now"></button></div>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th data-i18n="date"></th><th data-i18n="file"></th><th class="num" data-i18n="size"></th><th></th></tr></thead>
+        <tbody id="bkList"></tbody>
+      </table></div>
+    </section>
+  </main>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/settings.js"></script>
+</body>
+</html>

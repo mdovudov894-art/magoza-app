@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-title="nav_reports">
+  <header id="top"></header>
+  <main class="page">
+    <section class="panel">
+      <h2 data-i18n="nav_reports"></h2>
+      <div class="inline mt">
+        <button type="button" class="btn sm" data-r="today" data-i18n="r_today"></button>
+        <button type="button" class="btn sm" data-r="yesterday" data-i18n="r_yesterday"></button>
+        <button type="button" class="btn sm" data-r="week" data-i18n="r_week"></button>
+        <button type="button" class="btn sm" data-r="month" data-i18n="r_month"></button>
+      </div>
+      <form id="range" class="filters">
+        <label class="f"><span data-i18n="from"></span><input type="date" id="from" required></label>
+        <label class="f"><span data-i18n="to"></span><input type="date" id="to" required></label>
+        <button type="submit" class="btn primary" data-i18n="show"></button>
+        <a class="btn" id="xls" data-i18n="export_excel"></a>
+      </form>
+    </section>
+
+    <div id="out"></div>
+  </main>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/reports.js"></script>
+</body>
+</html>

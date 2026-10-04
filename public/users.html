@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Users</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-title="nav_users">
+  <header id="top"></header>
+  <main class="page">
+    <section class="panel">
+      <h2 id="formTitle" data-i18n="user_new"></h2>
+      <form id="form">
+        <div class="fgrid">
+          <div class="two">
+            <label class="f"><span data-i18n="full_name"></span><input type="text" id="uName" required></label>
+            <label class="f"><span data-i18n="username"></span><input type="text" id="uUser" autocapitalize="none" required></label>
+          </div>
+          <div class="two">
+            <label class="f"><span data-i18n="role"></span>
+              <select id="uRole"><option value="cashier" data-i18n="role_cashier"></option><option value="manager" data-i18n="role_manager"></option><option value="owner" data-i18n="role_owner"></option></select></label>
+            <label class="f"><span id="pwLabel" data-i18n="password"></span><input type="password" id="uPass" autocomplete="new-password"></label>
+          </div>
+          <p class="hint" data-i18n="roles_hint"></p>
+        </div>
+        <div class="row">
+          <button type="button" id="cancelEdit" class="btn" data-i18n="cancel" hidden></button>
+          <button type="submit" class="btn primary" data-i18n="save"></button>
+        </div>
+      </form>
+    </section>
+    <section class="panel">
+      <h2 data-i18n="nav_users"></h2>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th data-i18n="full_name"></th><th data-i18n="username"></th><th data-i18n="role"></th><th data-i18n="status"></th><th></th></tr></thead>
+        <tbody id="list"></tbody>
+      </table></div>
+    </section>
+  </main>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/users.js"></script>
+</body>
+</html>

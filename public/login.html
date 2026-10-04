@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="login-body" data-title="login">
+  <div class="login-card">
+    <span class="lang" id="langBox"></span>
+    <h1 data-i18n="app_name"></h1>
+
+    <form id="loginForm" class="fgrid">
+      <label class="f"><span data-i18n="username"></span><input type="text" id="u" autocomplete="username" autocapitalize="none" required></label>
+      <label class="f"><span data-i18n="password"></span><input type="password" id="p" autocomplete="current-password" required></label>
+      <button type="submit" class="btn primary" data-i18n="login"></button>
+    </form>
+
+    <form id="setupForm" class="fgrid" hidden>
+      <h2 data-i18n="setup_title"></h2>
+      <p class="hint" data-i18n="setup_hint"></p>
+      <label class="f"><span data-i18n="full_name"></span><input type="text" id="sName" required></label>
+      <label class="f"><span data-i18n="username"></span><input type="text" id="sUser" autocapitalize="none" required></label>
+      <label class="f"><span data-i18n="password"></span><input type="password" id="sPass" autocomplete="new-password" required></label>
+      <label class="f"><span data-i18n="password_repeat"></span><input type="password" id="sPass2" autocomplete="new-password" required></label>
+      <button type="submit" class="btn primary" data-i18n="setup_create"></button>
+    </form>
+    <p id="msg" class="status bad"></p>
+  </div>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

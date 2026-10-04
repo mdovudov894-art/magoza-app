@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Audit</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-title="nav_audit">
+  <header id="top"></header>
+  <main class="page">
+    <section class="panel">
+      <h2 data-i18n="nav_audit"></h2>
+      <p class="hint" data-i18n="audit_hint"></p>
+      <p id="filterNote" class="chip amber" hidden></p>
+      <form id="filters" class="filters">
+        <label class="f"><span data-i18n="action"></span><select id="fAction"><option value="" data-i18n="all"></option></select></label>
+        <label class="f"><span data-i18n="user"></span><input type="text" id="fUser"></label>
+        <label class="f"><span data-i18n="from"></span><input type="date" id="fFrom"></label>
+        <label class="f"><span data-i18n="to"></span><input type="date" id="fTo"></label>
+        <button type="submit" class="btn primary" data-i18n="search"></button>
+        <button type="button" id="reset" class="btn" data-i18n="reset"></button>
+      </form>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th data-i18n="date"></th><th data-i18n="user"></th><th data-i18n="action"></th><th data-i18n="details"></th></tr></thead>
+        <tbody id="list"></tbody>
+      </table></div>
+    </section>
+  </main>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/audit.js"></script>
+</body>
+</html>

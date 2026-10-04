@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sales</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-title="nav_sales">
+  <header id="top"></header>
+  <main class="page">
+    <section class="panel">
+      <h2 data-i18n="nav_sales"></h2>
+      <form id="filters" class="filters">
+        <label class="f"><span data-i18n="from"></span><input type="date" id="fFrom"></label>
+        <label class="f"><span data-i18n="to"></span><input type="date" id="fTo"></label>
+        <label class="f"><span data-i18n="receipt_no"></span><input type="number" id="fNo" min="1"></label>
+        <label class="f"><span data-i18n="type"></span>
+          <select id="fType"><option value="" data-i18n="all"></option><option value="sale" data-i18n="type_sale"></option><option value="refund" data-i18n="type_refund"></option></select></label>
+        <button type="submit" class="btn primary" data-i18n="search"></button>
+      </form>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>№</th><th data-i18n="date"></th><th data-i18n="cashier"></th><th data-i18n="type"></th><th data-i18n="method"></th><th class="num" data-i18n="total"></th><th></th></tr></thead>
+        <tbody id="list"></tbody>
+      </table></div>
+      <p id="count" class="hint mt"></p>
+    </section>
+  </main>
+
+  <dialog id="refundDlg" class="wide">
+    <h2><span data-i18n="refund_title"></span> №<span id="rfNo"></span></h2>
+    <p class="hint" data-i18n="refund_hint"></p>
+    <div class="tbl-wrap"><table class="tbl">
+      <thead><tr><th data-i18n="name"></th><th class="num" data-i18n="sold"></th><th class="num" data-i18n="already_refunded"></th><th data-i18n="refund_qty"></th></tr></thead>
+      <tbody id="rfItems"></tbody>
+    </table></div>
+    <label class="f mt"><span data-i18n="refund_method"></span>
+      <select id="rfMethod"><option value="cash" data-i18n="method_cash"></option><option value="card" data-i18n="method_card"></option></select></label>
+    <p class="mt"><b><span data-i18n="refund_sum"></span>: <span id="rfSum">0.00</span></b></p>
+    <div class="row"><button type="button" class="btn" id="rfCancel" data-i18n="cancel"></button><button type="button" class="btn primary" id="rfOk" data-i18n="refund_do"></button></div>
+  </dialog>
+
+  <script src="/js/i18n.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/sales.js"></script>
+</body>
+</html>

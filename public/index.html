@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>POS</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-title="nav_pos">
+  <header id="top"></header>
+
+  <main class="pos">
+    <section class="panel scanbox">
+      <form id="codeForm" class="codeform">
+        <input type="text" id="code" data-i18n-ph="pos_code_ph" autocomplete="off">
+        <button type="submit" class="btn primary" data-i18n="search"></button>
+      </form>
+      <div id="sugs" class="sugs"></div>
+      <p id="msg" class="msg"></p>
+      <div id="lastTag"></div>
+      <div id="reader" class="reader" hidden></div>
+      <div class="payrow">
+        <button type="button" id="camBtn" class="btn" data-i18n="cam_open"></button>
+        <button type="button" id="recBtn" class="btn" data-i18n="pos_find_receipt"></button>
+        <label class="rad"><input type="checkbox" id="autoPrint"> <span data-i18n="pos_autoprint"></span></label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 data-i18n="pos_cart"></h2>
+      <div class="tbl-wrap">
+        <table class="tbl cart-tbl">
+          <thead><tr>
+            <th data-i18n="name"></th><th data-i18n="qty"></th><th class="num" data-i18n="price"></th><th class="num" data-i18n="sum"></th><th></th>
+          </tr></thead>
+          <tbody id="cart"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="hint mt" data-i18n="pos_empty"></p>
+
+      <div class="totals">
+        <div class="r"><span data-i18n="subtotal"></span><span id="sub">0.00</span></div>
+        <div class="r"><span data-i18n="promo_discount"></span><span id="promo">0.00</span></div>
+        <div class="r" id="manualRow" hidden>
+          <span data-i18n="manual_discount"></span>
+          <span><input type="number" id="manualPct" min="0" max="100" step="1" value="0" style="width:70px"> %  <b id="manualAmt">0.00</b></span>
+        </div>
+        <div class="r grand"><span data-i18n="total"></span><span id="total">0.00</span></div>
+      </div>
+
+      <div class="payrow">
+        <label class="rad"><input type="radio" name="method" value="cash" checked> <span data-i18n="method_cash"></span></label>
+        <label class="rad"><input type="radio" name="method" value="card"> <span data-i18n="method_card"></span></label>
+        <span id="cashBox"><label class="rad"><span data-i18n="paid"></span> <input type="number" id="paid" min="0" step="0.01"></label></span>
+        <span class="change" id="changeBox"></span>
+      </div>
+      <div class="paybtns">
+        <button type="button" id="clearBtn" class="btn danger" data-i18n="pos_clear"></button>
+        <button type="button" id="payBtn" class="btn primary" data-i18n="pos_pay" disabled></button>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="recDlg" class="wide">
+    <h2 data-i18n="pos_find_receipt"></h2>
+    <form id="recForm" class="codeform mt">
+      <input type="number" id="recNo" min="1" data-i18n-ph="pos_receipt_no">
+      <button type="submit" class="btn primary" data-i18n="search"></button>
+    </form>
+    <div class="row"><button type="button" class="btn" id="recClose" data-i18n="close"></button></div>
+  </dialog>
+
+  <script src="/js/lib/html5-qrcode.min.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/pos.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Promotions</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-title="nav_promos">
+  <header id="top"></header>
+  <main class="page">
+    <section class="panel">
+      <h2 id="formTitle" data-i18n="promo_new"></h2>
+      <form id="form">
+        <div class="fgrid">
+          <label class="f"><span data-i18n="name"></span><input type="text" id="fName" required></label>
+          <div class="two">
+            <label class="f"><span data-i18n="promo_type"></span>
+              <select id="fType"><option value="percent" data-i18n="promo_type_percent"></option><option value="fixed" data-i18n="promo_type_fixed"></option></select></label>
+            <label class="f"><span data-i18n="promo_value"></span><input type="number" id="fValue" min="0.01" step="0.01" required></label>
+          </div>
+          <label class="f"><span data-i18n="promo_scope"></span>
+            <select id="fScope"><option value="product" data-i18n="promo_scope_product"></option><option value="category" data-i18n="promo_scope_category"></option><option value="all" data-i18n="promo_scope_all"></option></select></label>
+          <div id="boxProduct" class="f"><span data-i18n="promo_product"></span>
+            <input type="text" id="fPick" data-i18n-ph="stock_pick_ph"><div id="pickList"></div>
+            <b id="pickedName" class="mt"></b></div>
+          <label class="f" id="boxCategory" hidden><span data-i18n="category"></span><input type="text" id="fCat"></label>
+          <div class="two">
+            <label class="f"><span data-i18n="promo_from"></span><input type="date" id="fFrom"></label>
+            <label class="f"><span data-i18n="promo_to"></span><input type="date" id="fTo"></label>
+          </div>
+          <label class="rad payrow"><input type="checkbox" id="fActive" checked> <span data-i18n="active"></span></label>
+        </div>
+        <div class="row">
+          <button type="button" id="cancelEdit" class="btn" data-i18n="cancel" hidden></button>
+          <button type="submit" class="btn primary" data-i18n="save"></button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2 data-i18n="promo_list"></h2>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th data-i18n="name"></th><th data-i18n="promo_discount_col"></th><th data-i18n="promo_applies"></th><th data-i18n="promo_period"></th><th data-i18n="status"></th><th></th></tr></thead>
+        <tbody id="list"></tbody>
+      </table></div>
+    </section>
+  </main>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/promos.js"></script>
+</body>
+</html>

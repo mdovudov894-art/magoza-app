@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-title="nav_products">
+  <header id="top"></header>
+  <main class="page">
+    <section class="panel">
+      <h2 id="formTitle" data-i18n="prod_new"></h2>
+      <form id="form">
+        <div class="fgrid">
+          <label class="f"><span data-i18n="barcode"></span>
+            <span class="inline"><input type="text" id="pBarcode" inputmode="numeric" required>
+              <button type="button" id="scanBtn" class="btn" data-i18n="scan_by_camera"></button></span>
+          </label>
+          <label class="f"><span data-i18n="name"></span><input type="text" id="pName" required></label>
+          <div class="two">
+            <label class="f"><span data-i18n="price"></span><input type="number" id="pPrice" min="0" step="0.01" required></label>
+            <label class="f"><span data-i18n="cost"></span><input type="number" id="pCost" min="0" step="0.01"></label>
+          </div>
+          <div class="two">
+            <label class="f"><span data-i18n="unit"></span>
+              <select id="pUnit"><option value="pcs" data-i18n="unit_pcs"></option><option value="kg" data-i18n="unit_kg"></option><option value="l" data-i18n="unit_l"></option><option value="pack" data-i18n="unit_pack"></option></select></label>
+            <label class="f"><span data-i18n="category"></span><input type="text" id="pCat"></label>
+          </div>
+          <div class="two">
+            <label class="f"><span data-i18n="plu"></span><input type="text" id="pPlu" inputmode="numeric"></label>
+            <label class="f"><span data-i18n="min_stock"></span><input type="number" id="pMin" min="0" step="any"></label>
+          </div>
+          <p class="hint" data-i18n="plu_hint"></p>
+          <label class="f"><span data-i18n="note"></span><input type="text" id="pNote"></label>
+          <div class="f"><span data-i18n="photo"></span>
+            <span class="inline">
+              <label class="btn"><span data-i18n="photo_choose"></span><input type="file" id="photo" accept="image/*" hidden></label>
+              <button type="button" id="rmPhoto" class="btn danger" data-i18n="photo_remove" hidden></button>
+            </span>
+            <img id="preview" class="thumb-prev" alt="" hidden>
+          </div>
+        </div>
+        <div class="row">
+          <button type="button" id="cancelEdit" class="btn" data-i18n="cancel" hidden></button>
+          <button type="submit" id="saveBtn" class="btn primary" data-i18n="save"></button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2 data-i18n="import_title"></h2>
+      <p class="hint" data-i18n="import_hint"></p>
+      <div class="inline mt">
+        <input type="file" id="impFile" accept=".xlsx,.csv,.txt">
+        <button type="button" id="impPreview" class="btn" data-i18n="import_preview"></button>
+        <button type="button" id="impApply" class="btn primary" data-i18n="import_apply" disabled></button>
+        <a class="btn" href="/api/products/template.xlsx" data-i18n="import_template"></a>
+        <a class="btn" href="/api/products/export.xlsx" data-i18n="export_products"></a>
+      </div>
+      <div id="impResult" class="mt"></div>
+    </section>
+
+    <section class="panel">
+      <div class="head">
+        <h2 data-i18n="prod_list"></h2>
+        <input type="text" id="search" data-i18n-ph="prod_search_ph" style="max-width:280px">
+      </div>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th></th><th data-i18n="name"></th><th data-i18n="barcode"></th><th class="num" data-i18n="price"></th><th class="num" data-i18n="cost"></th><th class="num" data-i18n="stock"></th><th></th></tr></thead>
+        <tbody id="list"></tbody>
+      </table></div>
+      <p id="count" class="hint mt"></p>
+    </section>
+  </main>
+
+  <dialog id="scanDialog">
+    <h2 data-i18n="scan_title"></h2>
+    <div id="reader2" class="reader mt"></div>
+    <div class="row"><button type="button" id="closeScan" class="btn" data-i18n="close"></button></div>
+  </dialog>
+
+  <script src="/js/lib/html5-qrcode.min.js"></script>
+  <script src="/js/i18n.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/products.js"></script>
+</body>
+</html>
